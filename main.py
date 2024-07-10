@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
-import Paramify
+import libs.Paramify as Paramify
 import sqlite3
 from migrations import mig_funcs
-config = Paramify.ConfigFile("global_config.json")
-
+import Component_manager.Component_manager
+config = Paramify.ConfigFile("./Config/global_config.json")
 db_name = config.load_param("db_name", "", "global_db.db")
 run_migs = config.load_param("run_migrations", "", True)
 dev_env = config.load_param("dev_env", "", "prod")
