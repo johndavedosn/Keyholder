@@ -1,6 +1,6 @@
 {
   "db_name": "Keys.db",
-  "run_migrations": false,
+  "run_migrations": true,
   "dev_env": "prod",
-  "token": "nicetoken"
+  "token": "<YOUR-TOKEN-HERE>"
 }
