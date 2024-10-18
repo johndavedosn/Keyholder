@@ -1,5 +1,5 @@
 {
   "db_name": "Keys.db",
-  "run_migrations": true,
+  "run_migrations": false,
   "dev_env": "prod"
 }

@@ -1,0 +1,8 @@
+{
+    "components": [
+        {
+            "name":"test_co",
+            "enabled": true
+        }
+    ]
+}

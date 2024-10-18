@@ -1,5 +1,5 @@
 import libs.Paramify as Paramify
-config = Paramify.ConfigFile("./Config/component_config.json")
+config = Paramify.ConfigFile("component_config.json")
 components = config.load_param("components", "")
 for component in components:
     name = component["name"]

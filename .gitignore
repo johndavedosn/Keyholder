@@ -1,3 +1,4 @@
-__pycache__
+__pycache__/
 Keys.db
 ./test.py
+.env

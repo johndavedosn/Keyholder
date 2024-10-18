@@ -6,7 +6,7 @@ import Component_manager.Component_manager
 import dotenv
 import os
 dotenv.load_dotenv()
-config = Paramify.ConfigFile("Config/main_config.json")
+config = Paramify.ConfigFile("main_config.json")
 db_name = config.load_param("db_name", "", "global_db.db")
 run_migs = config.load_param("run_migrations", "", True)
 dev_env = config.load_param("dev_env", "", "prod")
@@ -76,4 +76,4 @@ def remove_key():
         conn.commit()
         return jsonify[{"status": 200, "message": "OK"}]
                     
-app.run(host="192.168.8.100", port=8080, debug=True)
+app.run(host="0.0.0.0", port=8080, debug=True)
