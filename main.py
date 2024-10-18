@@ -3,12 +3,15 @@ import libs.Paramify as Paramify
 import sqlite3
 from migrations import mig_funcs
 import Component_manager.Component_manager
-config = Paramify.ConfigFile("./Config/global_config.json")
+import dotenv
+import os
+dotenv.load_dotenv()
+config = Paramify.ConfigFile("Config/main_config.json")
 db_name = config.load_param("db_name", "", "global_db.db")
 run_migs = config.load_param("run_migrations", "", True)
 dev_env = config.load_param("dev_env", "", "prod")
 if dev_env == "prod":
-    token = config.load_param("token", "", None)
+    token = os.environ["token"]
     if token == None:
         print("To change your environment from production to development, change the 'dev_env' parameter in your global config file.")
         raise RuntimeError("Production configured environments require a token")
@@ -20,7 +23,7 @@ if run_migs == True:
     print("Running migrations...")
 
     cur.execute(migs)
-    strm = Paramify.ConfigStream("global_config.json")
+    strm = Paramify.ConfigStream("main_config.json")
     strm.update_param("run_migrations", False)
 app = Flask(__name__)
 
