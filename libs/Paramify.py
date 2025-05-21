@@ -25,7 +25,7 @@ class ConfigFile:
     def update_param(self, param: str, value):
         if param in self.config:
             self.config[param] = value
-            with open(self.file, "w") as config_file:
+            with open(self.file_name, "w") as config_file:
                 json.dump(self.config, config_file, indent=2)
     def validate(self, param_name: str, expected_type):
         if param_name in self.config:
